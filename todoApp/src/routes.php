@@ -13,4 +13,4 @@ $app->get('/[{name}]', function (Request $request, Response $response, array $ar
     return $this->renderer->render($response, 'index.phtml', $args);
 });
 
-$app->get('/todos', 'displayTodoControllerFactory');
+$app->get('/todos', 'DisplayTodosControllerFactory');

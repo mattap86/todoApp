@@ -12,7 +12,7 @@ class TodoModel
     /**
      * TodoModel constructor.
      *
-     * @param \PDO $db
+     * @param \PDO $db is the database.
      */
     public function __construct(\PDO $db)
     {
@@ -22,7 +22,7 @@ class TodoModel
     /**
      * Adds a single $todo to the $todos array.
      *
-     * @param string $todo
+     * @param string $todo is an entry into the todoApp.
      */
     public function displaySingleTodo(string $todo)
     {
@@ -32,7 +32,7 @@ class TodoModel
     /**
      * Adds all $todos to the $todos array.
      *
-     * @param array $todos
+     * @param array $todos are entries into the todoApp.
      */
     public function displayAllTodos(array $todos)
     {
