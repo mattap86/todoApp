@@ -22,3 +22,5 @@ $container['logger'] = function ($c) {
 $container['dbConnection'] = function () {
     return $db = new PDO('mysql:host=127.0.0.1;dbname=todos', 'root');
 };
+
+$container['TodoModel'] = new \Todo\Classes\Factories\TodoModelFactory();
