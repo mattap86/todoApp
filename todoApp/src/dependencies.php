@@ -19,8 +19,10 @@ $container['logger'] = function ($c) {
 };
 
 // database
-$container['dbConnection'] = function () {
-    return $db = new PDO('mysql:host=127.0.0.1;dbname=todos', 'root');
+$container['db'] = function () {
+    return $db = new PDO('mysql:host=192.168.20.20;dbname=todos', 'root');
 };
 
 $container['TodoModel'] = new \Todo\Classes\Factories\TodoModelFactory();
+
+$container['DisplayTodosController'] = new \Todo\Classes\Factories\DisplayTodosControllerFactory();

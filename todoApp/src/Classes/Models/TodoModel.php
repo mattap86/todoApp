@@ -7,7 +7,6 @@ namespace Todo\Classes\Models;
 class TodoModel
 {
     private $db;
-    private $todos = [];
 
     /**
      * TodoModel constructor.
@@ -20,24 +19,31 @@ class TodoModel
     }
 
     /**
-     * Adds a single $todo to the $todos array.
+     * @param $id
      *
-     * @param string $todo is an entry into the todoApp.
+     * @return mixed
      */
-    public function displaySingleTodo(string $todo)
+    public function getSingleTodo($id)
     {
-        array_push($this->todos, $todo);
+        $query = $this->db->prepare("SELECT `todoName` FROM `todos` WHERE `id` = :id;");
+        $query->bindParam(':id', $id);
+        $query->execute();
+        return $query->fetch();
     }
 
     /**
-     * Adds all $todos to the $todos array.
-     *
-     * @param array $todos are entries into the todoApp.
+     * @return array
      */
-    public function displayAllTodos(array $todos)
+    public function getAllTodos()
     {
-        foreach ($todos as $todo) {
-            array_push($this->todos, $todo);
-        }
+        $query = $this->db->prepare("SELECT `todoName` FROM `todos`;");
+        $query->execute();
+        return $query->fetchAll();
+    }
+
+    public function completeTodo()
+    {
+        $query = $this->db->prepare("UPDATE `todos` SET `completed` = `1`;");
+        $query->execute();
     }
 }

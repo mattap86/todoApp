@@ -8,15 +8,14 @@ use Todo\Classes\Controllers\DisplayTodosController;
 class DisplayTodosControllerFactory
 {
     /**
-     *
-     *
      * @param ContainerInterface $container
-     * @return Object DisplayTodosController
+     *
+     * @return DisplayTodosController
      */
     public function __invoke(ContainerInterface $container) : DisplayTodosController
     {
-        $todoModelFactory = new TodoModelFactory();
         $renderer = $container->get('renderer');
-        return new DisplayTodosController($todoModelFactory, $renderer);
+        $todoModelFactory = $container->get('TodoModel');
+        return new DisplayTodosController($renderer, $todoModelFactory);
     }
 }
