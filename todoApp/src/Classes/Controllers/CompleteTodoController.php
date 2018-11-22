@@ -27,17 +27,16 @@ class CompleteTodoController
 
     /**
      *
-     *
+     * @param int $id
      * @param Request $request
      * @param Response $response
      * @param array $args
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function __invoke(Request $request, Response $response, array $args)
+    public function __invoke(int $id, Request $request, Response $response, array $args)
     {
-        $data = $this->todoModel->completeTodo();
-        $args['data'] = $data;
+        $this->todoModel->completeTodo($id);
         return $this->renderer->render($response, 'display.phtml', $args);
     }
 }
