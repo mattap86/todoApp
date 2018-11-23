@@ -10,5 +10,9 @@
         <h1>THINGS I NEED TO DO</h1>
         <div> <?= \Todo\Classes\ViewHelpers\DisplayTodosViewHelper::displayTodos($data); ?> </div>
     </div>
+    <div>
+        <input type="text" id="addTodo" placeholder="I need to..." />
+        <input type="submit" id="submitTodo" value="Add Entry" />
+    </div>
 </body>
 </html>

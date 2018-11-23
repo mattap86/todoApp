@@ -27,3 +27,18 @@ completeButtons.forEach(function (completeButton) {
     })
 })
 
+document.getElementById('submitTodo').addEventListener('click', function () {
+    let item = document.querySelectorAll('.addTodo').value
+    let data = {
+        "item": item
+    }
+    fetch("/api/addTodo", {
+        credentials: "same-origin",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+})
