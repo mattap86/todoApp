@@ -7,5 +7,5 @@ use Slim\Http\Response;
 $app->get('/todos', 'DisplayTodosController');
 
 //Back End
-$app->post('/api/', 'CompleteTodoController');
-$app->post('/api/', 'DeleteTodoController');
+$app->post('/api/completeTodo', 'CompleteTodoController');
+$app->post('/api/deleteTodo', 'DeleteTodoController');
