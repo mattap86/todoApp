@@ -3,7 +3,8 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 
-// Routes
-
-
+// Front End
 $app->get('/todos', 'DisplayTodosController');
+
+//Back End
+$app->post('/api/', 'CompleteTodoController');
