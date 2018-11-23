@@ -6,8 +6,7 @@ use \Slim\Http\Request as Request;
 use \Slim\Http\Response as Response;
 use Todo\Classes\Models\TodoModel;
 
-
-class CompleteTodoController
+class AddTodoController
 {
     private $todoModel;
 
@@ -37,13 +36,13 @@ class CompleteTodoController
             "data" => []
         ];
         $userRequest = $request->getParsedBody();
-        $id = $userRequest['id'];
-        $result = $this->todoModel->completeTodo($id);
-        if ($result && $id !== null){
+        $newTodo = $_GET['newTodo'];
+        $result = $this->todoModel->addTodo();
+        if ($result){
             $data = [
                 "success" => true,
-                "msg" => "This todo has been completed",
-                "data" => [$id]
+                "msg" => "This todo has been added",
+                "data" => [$newTodo]
             ];
         }
         return $response->withJson($data,200);

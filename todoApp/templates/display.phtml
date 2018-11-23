@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>My To-Do App</title>
+    <script src="/js/display.js" defer></script>
 </head>
 <body>
     <div>
         <h1>THINGS I NEED TO DO</h1>
-        <ol>
-        <?php
-        foreach ($data as $datum) {
-            echo '<li>' . $datum['todoName'] . '</li><br>';
-        }
-        ?>
-        </ol>
+        <div> <?= \Todo\Classes\ViewHelpers\DisplayTodosViewHelper::displayTodos($data); ?> </div>
     </div>
 </body>
 </html>
