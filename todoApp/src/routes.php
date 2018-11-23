@@ -8,3 +8,4 @@ $app->get('/todos', 'DisplayTodosController');
 
 //Back End
 $app->post('/api/', 'CompleteTodoController');
+$app->post('/api/', 'DeleteTodoController');

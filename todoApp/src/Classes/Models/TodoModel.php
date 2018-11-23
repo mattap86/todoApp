@@ -19,11 +19,11 @@ class TodoModel
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return mixed
      */
-    public function getSingleTodo($id)
+    public function getSingleTodo(int $id)
     {
         $query = $this->db->prepare("SELECT `todoName` FROM `todos` WHERE `id` = :id;");
         $query->bindParam(':id',$id);
@@ -42,13 +42,22 @@ class TodoModel
     }
 
     /**
-     * @param $id
+     * @param int $id
      */
-    public function completeTodo($id)
+    public function completeTodo(int $id)
     {
         $query = $this->db->prepare("UPDATE `todos` SET `completed` = `1` WHERE `id` = :id;");
         $query->bindParam(':id',$id);
         $query->execute();
     }
-}
 
+    /**
+     * @param int $id
+     */
+    public function deleteTodo(int $id)
+    {
+        $query = $this->db->prepare("UPDATE `todos` SET `deleted` = `1` WHERE `id` = :id;");
+        $query->bindParam(':id',$id);
+        $query->execute();
+    }
+}
