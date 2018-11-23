@@ -7,11 +7,13 @@
 <body>
     <div>
         <h1>THINGS I NEED TO DO</h1>
+        <ol>
         <?php
         foreach ($data as $datum) {
-            echo $datum['todoName'] . '<br>';
+            echo '<li>' . $datum['todoName'] . '</li><br>';
         }
         ?>
+        </ol>
     </div>
 </body>
 </html>
