@@ -3,12 +3,11 @@ let completeButtons = document.querySelectorAll('.checkComplete')
 completeButtons.forEach(function (completeButton) {
 
     if (completeButton.parentElement.getAttribute('data-complete') == 1) {
-        completeButton.parentElement.style.textDecoration = 'line-through'
         completeButton.parentElement.style.color = 'green'
     }
 
     completeButton.addEventListener('click', function (e) {
-        let element = e.target.parentElement
+        let element = e.target.parentNode
         let id = element.getAttribute('data-id')
         let data = {
             "id": id
@@ -22,15 +21,43 @@ completeButtons.forEach(function (completeButton) {
             method: "post",
             body: JSON.stringify(data)
         })
-        element.parentElement.style.textDecoration = 'line-through'
         element.parentElement.style.color = 'green'
+        window.location.reload()
+    })
+})
+
+let deleteButtons = document.querySelectorAll('.checkDelete')
+
+deleteButtons.forEach(function (deleteButton) {
+
+    if (deleteButton.parentElement.getAttribute('data-delete') == 1) {
+        deleteButton.parentElement.style.display = 'none'
+    }
+
+    deleteButton.addEventListener('click', function (e) {
+        let element = e.target.parentElement
+        let id = element.getAttribute('data-id')
+        let data = {
+            "id": id
+        }
+        fetch("/api/deleteTodo", {
+            credentials: "same-origin",
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            method: "post",
+            body: JSON.stringify(data)
+        })
+        element.parentElement.style.display = 'none'
+        window.location.reload()
     })
 })
 
 document.getElementById('submitTodo').addEventListener('click', function () {
-    let item = document.querySelectorAll('.addTodo').value
+    let item = document.getElementById('addTodo').value
     let data = {
-        "item": item
+        "todoName": item
     }
     fetch("/api/addTodo", {
         credentials: "same-origin",
@@ -41,4 +68,5 @@ document.getElementById('submitTodo').addEventListener('click', function () {
         method: "POST",
         body: JSON.stringify(data)
     })
+    window.location.reload()
 })

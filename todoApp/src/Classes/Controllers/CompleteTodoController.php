@@ -12,7 +12,7 @@ class CompleteTodoController
     private $todoModel;
 
     /**
-     * DisplayTodosController constructor.
+     * CompleteTodoController constructor.
      *
      * @param TodoModel $todoModel
      */
