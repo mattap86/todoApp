@@ -6,13 +6,13 @@
     <script src="/js/display.js" defer></script>
 </head>
 <body>
-    <div>
-        <h1>THINGS I NEED TO DO</h1>
-        <div> <?= \Todo\Classes\ViewHelpers\DisplayTodosViewHelper::displayTodos($data); ?> </div>
+    <div class="todoList">
+        <h1 class="listTitle">THINGS I NEED TO DO</h1>
+        <div class="listEntries"> <?= \Todo\Classes\ViewHelpers\DisplayTodosViewHelper::displayTodos($data); ?> </div>
     </div>
-    <div>
+    <div class="addToList">
         <input type="text" id="addTodo" placeholder="I need to..." />
-        <input type="submit" id="submitTodo" value="Add Entry" />
+        <input type="submit" id="submitTodo" value="Add To List" />
     </div>
 </body>
 </html>
