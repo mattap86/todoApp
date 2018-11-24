@@ -39,10 +39,10 @@ class DeleteTodoController
         $userRequest = $request->getParsedBody();
         $id = $userRequest['id'];
         $result = $this->todoModel->deleteTodo($id);
-        if ($result && $id !== 0){
+        if ($result && $id !== null){
             $data = [
                 "success" => true,
-                "msg" => "This entry has been deleted",
+                "msg" => "This entry was deleted",
                 "data" => [$id]
             ];
         }

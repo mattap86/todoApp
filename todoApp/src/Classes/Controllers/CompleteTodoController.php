@@ -33,7 +33,7 @@ class CompleteTodoController
     {
         $data = [
             "success" => false,
-            "msg" => "this has not worked",
+            "msg" => "Something went wrong",
             "data" => []
         ];
         $userRequest = $request->getParsedBody();
@@ -42,7 +42,7 @@ class CompleteTodoController
         if ($result && $id !== null){
             $data = [
                 "success" => true,
-                "msg" => "This todo has been completed",
+                "msg" => "This entry has been completed",
                 "data" => [$id]
             ];
         }

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Todo\Classes\Models;
 
 
@@ -25,7 +24,7 @@ class TodoModel
      *
      * @return mixed
      */
-    public function getSingleTodo(int $id)
+    public function getSingleTodo($id)
     {
         $query = $this->db->prepare("SELECT `id`, `todoName`, `completed`, `deleted` FROM `todos`
                                                WHERE `id` = :id;");
@@ -35,7 +34,7 @@ class TodoModel
     }
 
     /**
-     * Retrieves all todos entries from the db.
+     * Retrieves all entries from the db.
      *
      * @return array $query->fetchAll() is all the todos entries.
      */
@@ -47,12 +46,13 @@ class TodoModel
     }
 
     /**
-     *
+     * @param $newTodo
      * @return bool
      */
-    public function addTodo()
+    public function addTodo($newTodo)
     {
-        $query = $this->db->prepare("INSERT INTO `todos` (`id`, `todoName`, `completed`, `deleted`);");
+        $query = $this->db->prepare("INSERT INTO `todos` (`todoName`) VALUES (:newTodo);");
+        $query->bindParam(':newTodo', $newTodo);
         return $query->execute();
     }
 
@@ -77,7 +77,7 @@ class TodoModel
      *
      * @return mixed primary key of row affected.
      */
-    public function deleteTodo(int $id)
+    public function deleteTodo($id)
     {
         $query = $this->db->prepare("UPDATE `todos` SET `deleted` = '1' WHERE `id` = :id;");
         $query->bindParam(':id',$id);

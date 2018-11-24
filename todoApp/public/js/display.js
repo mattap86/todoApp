@@ -7,7 +7,7 @@ completeButtons.forEach(function (completeButton) {
     }
 
     completeButton.addEventListener('click', function (e) {
-        let element = e.target.parentNode
+        let element = e.target.parentElement
         let id = element.getAttribute('data-id')
         let data = {
             "id": id

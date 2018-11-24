@@ -27,6 +27,8 @@ $container['TodoModel'] = new \Todo\Classes\Factories\TodoModelFactory();
 
 $container['DisplayTodosController'] = new \Todo\Classes\Factories\DisplayTodosControllerFactory();
 
+$container['AddTodoController'] = new \Todo\Classes\Factories\AddTodoControllerFactory();
+
 $container['CompleteTodoController'] = new \Todo\Classes\Factories\CompleteTodoControllerFactory();
 
 $container['DeleteTodoController'] = new \Todo\Classes\Factories\DeleteTodoControllerFactory();

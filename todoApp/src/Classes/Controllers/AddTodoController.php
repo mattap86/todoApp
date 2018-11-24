@@ -11,7 +11,7 @@ class AddTodoController
     private $todoModel;
 
     /**
-     * DisplayTodosController constructor.
+     * AddTodoController constructor.
      *
      * @param TodoModel $todoModel
      */
@@ -32,16 +32,16 @@ class AddTodoController
     {
         $data = [
             "success" => false,
-            "msg" => "this has not worked",
+            "msg" => "Something went wrong",
             "data" => []
         ];
         $userRequest = $request->getParsedBody();
-        $newTodo = $_GET['newTodo'];
-        $result = $this->todoModel->addTodo();
+        $newTodo = $userRequest['todoName'];
+        $result = $this->todoModel->addTodo($newTodo);
         if ($result){
             $data = [
                 "success" => true,
-                "msg" => "This todo has been added",
+                "msg" => "Your entry has been successfully added",
                 "data" => [$newTodo]
             ];
         }
