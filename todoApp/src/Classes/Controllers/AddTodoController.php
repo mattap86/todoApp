@@ -38,7 +38,7 @@ class AddTodoController
         $userRequest = $request->getParsedBody();
         $newTodo = $userRequest['todoName'];
         $result = $this->todoModel->addTodo($newTodo);
-        if ($result){
+        if ($result) {
             $data = [
                 "success" => true,
                 "msg" => "Your entry has been successfully added",

@@ -13,7 +13,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 session_start();
 
-// Instantiate the app
+// Instantiate the todoApp
 $settings = require __DIR__ . '/../src/settings.php';
 $app = new \Slim\App($settings);
 
@@ -26,5 +26,5 @@ require __DIR__ . '/../src/middleware.php';
 // Register routes
 require __DIR__ . '/../src/routes.php';
 
-// Run app
+// Run todoApp
 $app->run();

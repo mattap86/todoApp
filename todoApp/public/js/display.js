@@ -70,3 +70,8 @@ document.getElementById('submitTodo').addEventListener('click', function () {
     })
     window.location.reload()
 })
+
+document.getElementById('displayInput').addEventListener('click', function () {
+    document.getElementById('addTodo').style.display = 'inline-block'
+    document.getElementById('submitTodo').style.display = 'inline-block'
+})

@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+body {
+  box-sizing: border-box;
+  text-align: center;
+  .container {
+    .todoList {
+      .listTitle {
+      }
+      .todos {
+        padding: 5px;
+        .todo {
+          background-color: #ebebeb;
+        }
+        .checkComplete, .checkDelete {
+          cursor: pointer;
+        }
+        .checkComplete {
+        }
+        .checkComplete:hover {
+          color: #2ca02c;
+          transition: 0.5s;
+        }
+        .checkDelete {
+          color: #ac2925;
+        }
+      }
+    }
+    .editList {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      margin: 0 auto;
+      .displayInput {
+        font-size: 30px;
+      }
+    }
+    .addToList {
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      .addTodoInput {
+        display: none;
+        margin: 10px;
+        background-color: #000000;
+        color: #ffffff;
+        &::placeholder {
+          color: #ffffff;
+        }
+      }
+      .submitTodoBtn {
+        display: none;
+        border-radius: 25px;
+        box-shadow: 0 3px 0 #555555;
+        transition: box-shadow 0.1s, top 0.1s;
+      }
+      .submitTodoBtn:active {
+        bottom: 17px;
+        box-shadow: 0 1px 0 #555555;
+        text-decoration: none;
+        border: none;
+      }
+    }
+  }
+}
